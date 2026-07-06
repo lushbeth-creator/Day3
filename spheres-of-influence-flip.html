@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Spheres of Influence, Flip Cards</title>
+<style>
+  * { box-sizing: border-box; }
+  html { background: transparent; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: transparent;
+    margin: 0;
+    padding: 16px 0;
+    color: #444;
+  }
+  .page {
+    margin: 0;
+    padding: 0 24px;
+  }
+
+  /* Outer module wrapper */
+  .outer {
+    border: 1px solid #d8dce8;
+    border-radius: 8px;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #ffffff 0%, #e8edf8 100%);
+  }
+  .panel { padding: 22px 24px; }
+  .eyebrow-label {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    color: #59A398;
+    margin-bottom: 8px;
+  }
+  .panel-title {
+    font-weight: 700;
+    font-size: 26px;
+    color: #1B2F5B;
+    margin: 0 0 12px;
+  }
+  .body-text { font-size: 16px; color: #444; line-height: 1.6; }
+
+  /* Flip card grid */
+  .flip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .flip-card {
+    height: 330px;
+    perspective: 1200px;
+    cursor: pointer;
+  }
+  .flip-card:focus { outline: none; }
+  .flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform .6s;
+    transform-style: preserve-3d;
+  }
+  .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+
+  .flip-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border: 1px solid #A6B3D5;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  .flip-front {
+    background: linear-gradient(to bottom, #ffffff 0%, rgba(93,112,174,0.28) 100%);
+    justify-content: space-between;
+  }
+  .flip-back {
+    background: linear-gradient(to bottom, #ffffff 0%, rgba(89,163,152,0.28) 100%);
+    transform: rotateY(180deg);
+    justify-content: flex-start;
+  }
+
+  .flip-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: #59A398;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 14px;
+    flex-shrink: 0;
+  }
+  .flip-front h3 {
+    font-size: 28px;
+    color: #1B2F5B;
+    margin: 0 0 16px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .flip-teaser {
+    font-size: 21px;
+    color: #5D70AE;
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .flip-hint {
+    font-size: 15px;
+    color: #5D70AE;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .flip-hint .icon {
+    width: 18px; height: 18px;
+    flex-shrink: 0;
+  }
+
+  .flip-back .back-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: #59A398;
+    margin-bottom: 8px;
+  }
+  .flip-back p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.55;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .discuss-block {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #d8dce8;
+  }
+  .discuss-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: #59A398;
+    margin-bottom: 5px;
+  }
+  .discuss-q {
+    font-size: 14px;
+    color: #1B2F5B;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .cadence-block {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #d8dce8;
+  }
+  .cadence-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: #59A398;
+    margin-bottom: 4px;
+  }
+  .cadence-text {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.4;
+  }
+
+  .caution-note {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #9C6B00;
+    margin-top: 16px;
+  }
+  .caution-note .caution-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="eyebrow-label">Where to Start</div>
+  <div class="panel-title">Spheres of Influence</div>
+  <p class="body-text">You do not need to reinvent yourself. Start where familiarity exists, those conversations feel easier, build early confidence, and open doors faster than a cold walk-in. Tap a card to see why it works.</p>
+
+  <div class="flip-grid">
+
+        <div class="flip-card" tabindex="0" role="button" aria-label="Flip card, Friends and Family">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <div>
+                <div class="flip-num">1</div>
+                <h3>Friends &amp; Family</h3>
+                <div class="flip-teaser">Your highest-trust, easiest place to start.</div>
+              </div>
+              <div class="flip-hint">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#5D70AE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v6h6"/><path d="M20 20v-6h-6"/><path d="M20 10a8 8 0 0 0-14.9-3.5"/><path d="M4 14a8 8 0 0 0 14.9 3.5"/></svg>
+                Tap to flip
+              </div>
+            </div>
+            <div class="flip-face flip-back">
+              <div class="back-label">Friends &amp; Family</div>
+              <p>Your closest circle, highest trust, easiest conversations. Reach out, tell them what you're doing, and ask about their connections. Don't overthink it.</p>
+              <div class="discuss-block">
+                <div class="discuss-label">Discuss</div>
+                <div class="discuss-q">What's a natural way to bring this up without it sounding like a pitch?</div>
+              </div>
+              <div class="cadence-block">
+                <div class="cadence-label">Suggested Cadence</div>
+                <div class="cadence-text">Reach out to 2-3 people in this circle every week.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" tabindex="0" role="button" aria-label="Flip card, Businesses You Frequent">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <div>
+                <div class="flip-num">2</div>
+                <h3>Businesses You Frequent</h3>
+                <div class="flip-teaser">You're already their customer, just not their rep yet.</div>
+              </div>
+              <div class="flip-hint">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#5D70AE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v6h6"/><path d="M20 20v-6h-6"/><path d="M20 10a8 8 0 0 0-14.9-3.5"/><path d="M4 14a8 8 0 0 0 14.9 3.5"/></svg>
+                Tap to flip
+              </div>
+            </div>
+            <div class="flip-face flip-back">
+              <div class="back-label">Businesses You Frequent</div>
+              <p>You're already the merchant's customer, you just haven't introduced yourself. Lead with the relationship, be curious first, then leverage the opportunity.</p>
+              <div class="discuss-block">
+                <div class="discuss-label">Discuss</div>
+                <div class="discuss-q">How do you turn "regular customer" into "let me tell you what I do"?</div>
+              </div>
+              <div class="cadence-block">
+                <div class="cadence-label">Suggested Cadence</div>
+                <div class="cadence-text">Introduce yourself to one new business you frequent each week.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" tabindex="0" role="button" aria-label="Flip card, Previous Clients">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <div>
+                <div class="flip-num">3</div>
+                <h3>Previous Clients</h3>
+                <div class="flip-teaser">Trust already exists. Circumstances change.</div>
+              </div>
+              <div class="flip-hint">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#5D70AE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v6h6"/><path d="M20 20v-6h-6"/><path d="M20 10a8 8 0 0 0-14.9-3.5"/><path d="M4 14a8 8 0 0 0 14.9 3.5"/></svg>
+                Tap to flip
+              </div>
+            </div>
+            <div class="flip-face flip-back">
+              <div class="back-label">Previous Clients</div>
+              <p>Pre-established trust removes the biggest barrier in any sales conversation. Pull your past contacts list, circumstances change.</p>
+              <div class="discuss-block">
+                <div class="discuss-label">Discuss</div>
+                <div class="discuss-q">How do you visit a former client and let them know what you're up to now, without it feeling like a cold pitch?</div>
+              </div>
+              <div class="cadence-block">
+                <div class="cadence-label">Suggested Cadence</div>
+                <div class="cadence-text">Revisit your past client list once a month.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+  <div class="caution-note">
+    <svg class="caution-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2.5 L23 21.5 H1 Z" fill="#B8860B"/>
+      <rect x="11" y="9" width="2" height="6.5" rx="1" fill="#ffffff"/>
+      <rect x="11" y="17" width="2" height="2" rx="1" fill="#ffffff"/>
+    </svg>
+    <span>One pitfall to watch: SOI gets you started, it does not build a career. Your warm leads and your prospecting activity have to run in parallel.</span>
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.flip-card').forEach(function(card) {
+    function toggle() { card.classList.toggle('flipped'); }
+    card.addEventListener('click', toggle);
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle();
+      }
+    });
+  });
+</script>
+</body>
+</html>

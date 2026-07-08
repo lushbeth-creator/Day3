@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The ISV Channel</title>
+<style>
+  * { box-sizing: border-box; }
+  html { background: transparent; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: transparent;
+    margin: 0;
+    padding: 16px 0;
+    color: #444;
+  }
+  .page {
+    margin: 0;
+    padding: 0 24px;
+  }
+  .section-intro {
+    margin: 0 0 22px;
+  }
+
+  .outer {
+    border: 1px solid #d8dce8;
+    border-radius: 8px;
+    overflow: visible;
+    background: linear-gradient(to bottom, #ffffff 0%, #e8edf8 100%);
+    margin-bottom: 26px;
+  }
+  .panel { padding: 22px 24px; }
+
+  .eyebrow-label {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    color: #59A398;
+    margin-bottom: 8px;
+  }
+  .panel-title {
+    font-weight: 700;
+    font-size: 26px;
+    color: #1B2F5B;
+    margin: 0 0 12px;
+  }
+  .body-text {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    margin: 0 0 22px;
+    text-wrap: balance;
+  }
+
+  .group-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #59A398;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d8dce8;
+  }
+
+  /* Cerbo example, standalone highlight */
+  .highlight-box {
+    background: #F3F6FF;
+    border: 1px solid #A6B3D5;
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 26px;
+  }
+  .highlight-box .hb-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #59A398;
+    margin-bottom: 6px;
+  }
+  .highlight-box h4 {
+    font-size: 18px;
+    color: #1B2F5B;
+    margin: 0 0 8px;
+    font-weight: 700;
+  }
+  .highlight-box p {
+    font-size: 15px;
+    color: #444;
+    margin: 0;
+    line-height: 1.6;
+    text-wrap: balance;
+  }
+
+  /* Two-col cards */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  @media (max-width: 640px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+  .col-card {
+    border: 1px solid #A6B3D5;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform .2s ease-out;
+    display: flex;
+    flex-direction: column;
+  }
+  .col-card:hover { transform: scale(1.03); }
+  .col-card .col-head {
+    color: #fff;
+    padding: 16px 18px;
+  }
+  .col-card.blue .col-head { background: #5D70AE; }
+  .col-card.green .col-head { background: #59A398; }
+  .col-card .tag {
+    font-size: 12px;
+    text-transform: uppercase;
+    opacity: .85;
+    font-weight: 600;
+  }
+  .col-card .col-head h4 {
+    margin: 4px 0 0;
+    font-size: 19px;
+  }
+  .col-card .col-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 18px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #444;
+    text-wrap: balance;
+  }
+  .col-card.blue .col-body { background: linear-gradient(to bottom, #ffffff 0%, rgba(93,112,174,0.18) 100%); }
+  .col-card.green .col-body { background: linear-gradient(to bottom, #ffffff 0%, rgba(89,163,152,0.18) 100%); }
+  .col-body .line { display: block; font-style: italic; color: #5D70AE; margin-bottom: 4px; }
+  .col-body .takeaway {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(166,179,213,0.4);
+    color: #444;
+    font-style: normal;
+  }
+
+  /* Summary chip grid */
+  .summary-chip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 700px) {
+    .summary-chip-grid { grid-template-columns: 1fr; }
+  }
+  .summary-chip {
+    background: linear-gradient(to bottom, #ffffff 0%, rgba(93,112,174,0.20) 100%);
+    border: 1px solid #A6B3D5;
+    border-radius: 8px;
+    padding: 16px 18px;
+    transition: transform .2s ease-out, background .2s ease-out;
+  }
+  .summary-chip:hover {
+    transform: scale(1.03);
+    background: linear-gradient(to bottom, #ffffff 0%, rgba(89,163,152,0.20) 100%);
+  }
+  .summary-chip b { display: block; font-size: 15px; color: #1B2F5B; margin-bottom: 6px; }
+  .summary-chip span { font-size: 13px; color: #555; line-height: 1.5; text-wrap: balance; }
+
+  /* Three-step agenda cards */
+  .agenda-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 700px) {
+    .agenda-grid { grid-template-columns: 1fr; }
+  }
+  .agenda-card {
+    background: linear-gradient(to bottom, #ffffff 0%, rgba(93,112,174,0.22) 100%);
+    border: 1px solid #A6B3D5;
+    border-radius: 8px;
+    padding: 18px;
+    transition: transform .2s ease-out, background .2s ease-out;
+  }
+  .agenda-card:hover {
+    transform: scale(1.035);
+    background: linear-gradient(to bottom, #ffffff 0%, rgba(89,163,152,0.22) 100%);
+  }
+  .agenda-card .num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #59A398;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 12px;
+  }
+  .agenda-card h3 {
+    font-size: 16px;
+    color: #1B2F5B;
+    margin: 0 0 8px;
+    font-weight: 700;
+  }
+  .agenda-card p {
+    font-size: 14px;
+    margin: 0;
+    color: #555;
+    line-height: 1.5;
+    text-wrap: balance;
+  }
+  .email-btn {
+    display: inline-block;
+    margin-top: 12px;
+    background: #5D70AE;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 9px 14px;
+    border-radius: 20px;
+    transition: background .15s;
+  }
+  .email-btn:hover { background: #59A398; }
+
+  .portal-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  .portal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #5D70AE;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 11px 16px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    transition: background .15s;
+  }
+  .portal-btn:hover { background: #59A398; }
+  .portal-btn svg { flex-shrink: 0; }
+
+  /* Result banner */
+  .result-banner {
+    background: #fff;
+    border: 1px solid #A6B3D5;
+    border-radius: 6px;
+    padding: 16px 18px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #5D70AE;
+    text-align: center;
+    line-height: 1.5;
+    text-wrap: balance;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="section-intro">
+    <div class="eyebrow-label">Partnership Channel</div>
+    <div class="panel-title">The ISV Channel</div>
+    <p class="body-text" style="margin-bottom:0;">Integrated Software Vendor, any company that builds and sells a software platform used by other businesses. One referral, many merchants.</p>
+  </div>
+
+  <div class="outer">
+  <div class="panel">
+  <div class="highlight-box" style="margin-bottom:0;">
+    <div class="hb-label">Propelr Example</div>
+    <h4>Cerbo</h4>
+    <p>A cloud-based EHR platform for medical practices. Cerbo integrated with Propelr so their users handle practice management and payments, all in one place.</p>
+  </div>
+  </div>
+  </div>
+
+  <p class="group-label">How to Spot an Opportunity</p>
+  <div class="outer">
+  <div class="panel">
+  <div class="two-col">
+    <div class="col-card blue">
+      <div class="col-head">
+        <div class="tag">Ask Every Merchant</div>
+        <h4>Their Answer Is Your Lead</h4>
+      </div>
+      <div class="col-body">
+        <span class="line">"Are you using any software to manage your business?"</span>
+        <div class="takeaway">Their answer is your lead.</div>
+      </div>
+    </div>
+    <div class="col-card green">
+      <div class="col-head">
+        <div class="tag">Quick Qualifier</div>
+        <h4>Should You Reach Out?</h4>
+      </div>
+      <div class="col-body">
+        <span class="line">"Is it used by multiple businesses?"</span>
+        <span class="line">"Do their customers need to accept payments?"</span>
+        <div class="takeaway">If yes to both, reach out.</div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <p class="group-label">Where Else to Look</p>
+  <div class="outer">
+  <div class="panel">
+  <div class="summary-chip-grid">
+    <div class="summary-chip"><b>Capterra, G2, GetApp, Software Advice</b><span>Search by industry to find platforms serving your merchant verticals.</span></div>
+    <div class="summary-chip"><b>Trade Show Exhibitor Lists</b><span>Any software company at a restaurant, med, or retail trade show is a potential lead.</span></div>
+    <div class="summary-chip"><b>LinkedIn</b><span>Search "SaaS" or "platform" in target industries, connect with founders.</span></div>
+  </div>
+  </div>
+  </div>
+
+  <p class="group-label">You Own Three Steps, the Engine Owns the Rest</p>
+  <div class="outer">
+  <div class="panel">
+  <div class="agenda-grid">
+    <div class="agenda-card">
+      <div class="num">1</div>
+      <h3>Find the ISV</h3>
+      <p>Ask merchants, check the directories, look for software serving merchants who take payments.</p>
+    </div>
+    <div class="agenda-card">
+      <div class="num">2</div>
+      <h3>Qualify &amp; Connect</h3>
+      <p>Gather intel: current payments setup, number of merchants. Introduce Propelr, the engine, the integration, the revenue share.</p>
+    </div>
+    <div class="agenda-card">
+      <div class="num">3</div>
+      <h3>Refer &amp; Step Back</h3>
+      <p>Send the warm lead to Eric Macken (emacken@propelrpay.com), complete the ISV intake form. The engine takes it from here.</p>
+      <a class="email-btn" href="mailto:isvsales@propelrpay.com">Email Our ISV &amp; Partnerships Team</a>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="outer">
+  <div class="panel">
+  <div class="result-banner" style="border:none;padding:0;background:transparent;">Every time one of that ISV's merchants processes a payment, you earn, automatically, indefinitely, with zero additional effort.</div>
+  <div class="portal-row">
+    <a class="portal-btn" href="https://propelrpay1.sharepoint.com/sites/Employee-Portal/SitePages/Partnership-Channel.aspx" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 6H19v5.5"/><path d="M19 6l-8 8"/><path d="M18 13.5V19H5V6h5.5"/></svg>
+      Visit the Employee Portal for More Information
+    </a>
+  </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

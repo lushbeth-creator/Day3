@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propelr: Elements of Effective Appointment Setting</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:transparent;font-family:'Inter',sans-serif;color:#1a1a2e;padding:.5rem}
+
+.eyebrow{text-transform:uppercase;font-size:11px;font-weight:700;letter-spacing:.05em;color:#59A398;margin-bottom:6px}
+.panel-title{font-weight:700;font-size:20px;color:#1B2F5B;margin-bottom:10px;text-wrap:balance}
+.body-text{font-size:14px;color:#444;line-height:1.6;margin-bottom:14px}
+
+/* Intro text that sits above the box, on the transparent background */
+.section-intro{padding:0 2px 16px 2px}
+
+/* Left-side tab layout */
+.inst-wrap{
+  display:flex;border:1px solid #d8dce8;border-radius:8px;overflow:hidden;
+}
+.inst-tabs{
+  display:flex;flex-direction:column;width:250px;flex-shrink:0;background:#fff;
+  border-right:1px solid #d8dce8;
+}
+.inst-tab-btn{
+  text-align:left;padding:16px 18px;border:none;border-bottom:1px solid #d8dce8;
+  background:#fff;cursor:pointer;font-family:'Inter',sans-serif;
+  font-size:13.5px;font-weight:700;color:#1B2F5B;line-height:1.4;
+  transition:background .15s;
+}
+.inst-tab-btn:last-child{border-bottom:none}
+.inst-tab-btn:hover{background:#F3F6FF}
+.inst-tab-btn.active{background:#5D70AE;color:#fff}
+.inst-content{
+  flex:1;padding:22px 24px;
+  background:linear-gradient(to bottom,#ffffff 0%,#F3F6FF 100%);
+}
+@media (max-width:640px){
+  .inst-wrap{flex-direction:column}
+  .inst-tabs{width:100%;flex-direction:row;flex-wrap:wrap;border-right:none;border-bottom:1px solid #d8dce8}
+  .inst-tab-btn{flex:1 1 50%;border-bottom:none;border-right:1px solid #d8dce8;font-size:12px;padding:12px}
+  .inst-tab-btn:last-child{border-right:none}
+}
+
+.inst-label{
+  font-size:11px;text-transform:uppercase;font-weight:700;letter-spacing:.04em;
+  color:#59A398;margin-bottom:10px;
+}
+.inst-list{margin:0;padding:0;list-style:none}
+.inst-list li{font-size:13.5px;color:#444;line-height:1.6;padding-left:16px;position:relative;margin-bottom:9px}
+.inst-list li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#59A398}
+.inst-list li:last-child{margin-bottom:0}
+.inst-list li b{color:#1B2F5B}
+
+/* Resource buttons */
+.resource-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.resource-btn{
+  display:inline-flex;align-items:center;gap:8px;background:#5D70AE;color:#fff;
+  text-decoration:none;font-size:12.5px;font-weight:700;padding:11px 15px;border-radius:6px;
+  font-family:'Inter',sans-serif;transition:background .15s;
+}
+.resource-btn:hover{background:#59A398}
+.resource-btn svg{flex-shrink:0}
+</style>
+</head>
+<body>
+
+<div class="section-intro">
+  <div class="eyebrow">Setting the Stage</div>
+  <div class="panel-title">Elements of Effective Appointment Setting</div>
+  <p class="body-text">The purpose of this section is to help you be prepared to share information about Propelr and how we are different from our competitors. Our goal is to create conversation when talking to a prospect, and to set an appointment.</p>
+</div>
+
+<div class="inst-wrap">
+      <div class="inst-tabs">
+        <button class="inst-tab-btn active" id="inst-btn-1" onclick="showInst(1)">What does an effective appointment setting conversation sound like?</button>
+        <button class="inst-tab-btn" id="inst-btn-2" onclick="showInst(2)">What questions should I ask?</button>
+        <button class="inst-tab-btn" id="inst-btn-3" onclick="showInst(3)">How do I overcome concerns?</button>
+        <button class="inst-tab-btn" id="inst-btn-4" onclick="showInst(4)">What should I do with the information gathered?</button>
+        <button class="inst-tab-btn" id="inst-btn-5" onclick="showInst(5)">Who are our competitors?</button>
+      </div>
+      <div class="inst-content">
+
+        <div id="inst-panel-1" class="inst-panel">
+          <div class="inst-label">Building the Conversation</div>
+          <ul class="inst-list">
+            <li>Build <b>rapport</b> before you get down to business</li>
+            <li>Follow the <b>80/20 rule</b>, you should be listening 80% of the time and talking only 20%</li>
+            <li>Ask questions with <b>Propelr</b> in mind, listen for openings where our strengths solve a real problem</li>
+            <li>Stay <b>curious</b>, a genuine question beats a rehearsed pitch every time</li>
+            <li>End with a <b>clear next step</b>, know exactly when and how you are following up</li>
+          </ul>
+        </div>
+
+        <div id="inst-panel-2" class="inst-panel" style="display:none;">
+          <div class="inst-label">Questions to Ask</div>
+          <ul class="inst-list">
+            <li>Who currently processes your payments, and how long have you been with them?</li>
+            <li>What do you like about your current setup, and what would you change if you could?</li>
+            <li>Are you in a contract right now, and do you know when it ends?</li>
+            <li>Has anything changed recently in your business that affects how you take payments?</li>
+            <li>Who else is usually part of a decision like this?</li>
+          </ul>
+        </div>
+
+        <div id="inst-panel-3" class="inst-panel" style="display:none;">
+          <div class="inst-label">Overcoming Concerns</div>
+          <ul class="inst-list">
+            <li><b>Acknowledge</b> the concern first, do not talk over it or rush past it</li>
+            <li>Ask a <b>clarifying question</b> to understand what is really behind the hesitation</li>
+            <li>Respond with a point that speaks directly to what they said, not a generic feature list</li>
+            <li><b>Confirm</b> they feel good about it before you move the conversation forward</li>
+            <li>Common ones to prepare for: <b>"I am happy with my current processor"</b>, <b>"I do not have time for this"</b>, and <b>"I have heard sales pitches before"</b></li>
+          </ul>
+        </div>
+
+        <div id="inst-panel-4" class="inst-panel" style="display:none;">
+          <div class="inst-label">After the Conversation</div>
+          <ul class="inst-list">
+            <li>Log the details in your <b>CRM notes</b> right after the conversation, while it is still fresh</li>
+            <li>Flag any concerns or hesitations so you are ready for them at the next touchpoint</li>
+            <li>Use what you learned to shape your <b>follow-up</b>, tailor it to their situation instead of repeating the same pitch</li>
+            <li>Note the <b>decision maker</b> if one was mentioned, along with the best way to reach them</li>
+          </ul>
+        </div>
+
+        <div id="inst-panel-5" class="inst-panel" style="display:none;">
+          <div class="inst-label">It's Not Us vs. Them, It's Them vs. Their Competition</div>
+          <ul class="inst-list">
+            <li>A merchant's real competition is not another processor, it is the business down the street competing for the same customers</li>
+            <li>Faster, more reliable equipment keeps checkout lines moving and customers coming back</li>
+            <li>Transparent pricing frees up cash they can reinvest in their business instead of losing it to hidden fees</li>
+            <li>Dependable support and uptime mean they never lose a sale to a processing problem</li>
+            <li>Signing with <b>Propelr</b> is not just a vendor switch, it is one more way to help them stay ahead of their competition</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+<script>
+function showInst(n){
+  for (var i = 1; i <= 5; i++){
+    document.getElementById('inst-btn-' + i).classList.remove('active');
+    document.getElementById('inst-panel-' + i).style.display = 'none';
+  }
+  document.getElementById('inst-btn-' + n).classList.add('active');
+  document.getElementById('inst-panel-' + n).style.display = 'block';
+}
+</script>
+</body>
+</html>

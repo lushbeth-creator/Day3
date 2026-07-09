@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propelr: Overcoming Common Concerns</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:transparent;font-family:'Inter',sans-serif;color:#1a1a2e;padding:.5rem}
+
+.section-intro{padding:0 2px 16px 2px}
+.eyebrow{text-transform:uppercase;font-size:11px;font-weight:700;letter-spacing:.05em;color:#59A398;margin-bottom:6px}
+.panel-title{font-weight:700;font-size:20px;color:#1B2F5B;margin-bottom:10px;text-wrap:balance}
+.body-text{font-size:14px;color:#444;line-height:1.6;text-wrap:balance}
+
+.acc-group{
+  border:1px solid #A6B3D5;
+  border-radius:8px;
+  overflow:hidden;
+  background:#F3F6FF;
+}
+.panel{padding:8px 18px 18px}
+
+/* Accordion */
+.acc-item{border-bottom:1px solid #d8dce8}
+.acc-item:last-child{border-bottom:none}
+.acc-head{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:18px 12px;cursor:pointer;user-select:none;
+  transition:background .15s;
+}
+.acc-head:hover{background:#e8edf8}
+.acc-quote{
+  font-size:15.5px;font-weight:700;color:#1B2F5B;line-height:1.4;font-style:italic;
+}
+.acc-quote::before{content:"\201C"}
+.acc-quote::after{content:"\201D"}
+.acc-toggle{
+  width:22px;height:22px;border-radius:50%;flex-shrink:0;
+  background:#F3F6FF;display:flex;align-items:center;justify-content:center;
+  transition:background .15s,transform .25s;
+}
+.acc-toggle svg{transition:transform .25s}
+.acc-item.open .acc-toggle{background:#5D70AE}
+.acc-item.open .acc-toggle svg{transform:rotate(45deg)}
+.acc-toggle svg path{stroke:#5D70AE}
+.acc-item.open .acc-toggle svg path{stroke:#ffffff}
+
+.acc-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.acc-body-inner{padding:0 12px 20px}
+
+.acc-label{
+  font-size:11px;text-transform:uppercase;font-weight:700;letter-spacing:.04em;
+  color:#59A398;margin-bottom:8px;
+}
+.acc-list{margin:0 0 14px;padding:0;list-style:none}
+.acc-list li{font-size:13.5px;color:#444;line-height:1.6;padding-left:16px;position:relative;margin-bottom:8px}
+.acc-list li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#59A398}
+.acc-list li:last-child{margin-bottom:0}
+.acc-list li b{color:#1B2F5B}
+
+.practice-card{
+  background:#F3F6FF;border:1px solid #A6B3D5;border-radius:8px;padding:14px 16px;
+}
+.practice-label{
+  font-size:11px;text-transform:uppercase;font-weight:700;letter-spacing:.04em;
+  color:#5D70AE;margin-bottom:5px;
+}
+.practice-text{font-size:13.5px;color:#1B2F5B;font-weight:600;line-height:1.5}
+</style>
+</head>
+<body>
+
+<div class="section-intro">
+  <div class="eyebrow">Practice Makes Confident</div>
+  <div class="panel-title">Overcoming Common Concerns</div>
+  <p class="body-text">Practice setting the appointment with a merchant and overcoming a few common concerns below. Lean on what makes Propelr different, and remember you are showing up as their local Senior Payments Advisor, not just another rep. Tap a concern to open it.</p>
+</div>
+
+<div class="acc-group">
+  <div class="panel">
+
+    <div class="acc-item" id="acc-1">
+      <div class="acc-head" onclick="toggleAcc(1)">
+        <div class="acc-quote">I am happy with my current provider</div>
+        <div class="acc-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+      </div>
+      <div class="acc-body" id="acc-body-1">
+        <div class="acc-body-inner">
+          <div class="acc-label">How to Respond</div>
+          <ul class="acc-list">
+            <li><b>Acknowledge</b> it. "That's great, glad to hear it's working for you."</li>
+            <li><b>Clarify.</b> Ask what they like most, and if there is anything they would change if they could.</li>
+            <li><b>Respond</b> as their local Senior Payments Advisor, offer a no-pressure second opinion. Even a provider that is working fine can be missing something a fresh set of eyes would catch.</li>
+            <li><b>Confirm</b> a low-stakes next step, a quick statement review rather than asking them to switch on the spot.</li>
+          </ul>
+          <div class="practice-card">
+            <div class="practice-label">Practice It</div>
+            <div class="practice-text">Role-play turning "I'm happy" into an opening for a free statement review, without it sounding like you are calling their choice wrong.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item" id="acc-2">
+      <div class="acc-head" onclick="toggleAcc(2)">
+        <div class="acc-quote">My friend handles this for me</div>
+        <div class="acc-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+      </div>
+      <div class="acc-body" id="acc-body-2">
+        <div class="acc-body-inner">
+          <div class="acc-label">How to Respond</div>
+          <ul class="acc-list">
+            <li><b>Acknowledge</b> the relationship. "That's great, it's nice to have someone you trust."</li>
+            <li><b>Clarify.</b> Ask if their friend is in payments full time, or handling it on the side alongside another job.</li>
+            <li><b>Respond</b> by positioning yourself as a dedicated, local advisor who is reachable and focused on this one piece of their business, not squeezing it in between other things.</li>
+            <li><b>Confirm</b> that you are not asking them to end that relationship, just offering yourself as another resource in their corner.</li>
+          </ul>
+          <div class="practice-card">
+            <div class="practice-label">Practice It</div>
+            <div class="practice-text">Role-play respecting the friendship while still making the case for a dedicated local advisor who is easy to reach.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item" id="acc-3">
+      <div class="acc-head" onclick="toggleAcc(3)">
+        <div class="acc-quote">I work with my bank</div>
+        <div class="acc-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+      </div>
+      <div class="acc-body" id="acc-body-3">
+        <div class="acc-body-inner">
+          <div class="acc-label">How to Respond</div>
+          <ul class="acc-list">
+            <li><b>Acknowledge</b> the trust they have in their bank.</li>
+            <li><b>Clarify.</b> Ask if the bank is who they call for equipment issues, pricing reviews, and day-to-day support, or if that gets referred out to someone else.</li>
+            <li><b>Respond</b> by explaining that payments is your entire focus, not one product among many, and that you are local and available in a way a bank's call center is not.</li>
+            <li><b>Confirm</b> by offering to be the specialist on their team alongside the bank, not a replacement for it.</li>
+          </ul>
+          <div class="practice-card">
+            <div class="practice-label">Practice It</div>
+            <div class="practice-text">Role-play the difference between a bank as a generalist and Propelr as a dedicated, local payments specialist.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item" id="acc-4">
+      <div class="acc-head" onclick="toggleAcc(4)">
+        <div class="acc-quote">I just switched</div>
+        <div class="acc-toggle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+      </div>
+      <div class="acc-body" id="acc-body-4">
+        <div class="acc-body-inner">
+          <div class="acc-label">How to Respond</div>
+          <ul class="acc-list">
+            <li><b>Acknowledge</b> the decision, no pressure to switch again right away.</li>
+            <li><b>Clarify.</b> Ask what made them switch, and when their new agreement or contract review date is.</li>
+            <li><b>Respond</b> by planting the seed for the future, let them know you are local and will be a resource whenever it is the right time to take a look.</li>
+            <li><b>Confirm</b> a light follow-up, not a hard close today.</li>
+          </ul>
+          <div class="practice-card">
+            <div class="practice-label">Practice It</div>
+            <div class="practice-text">Role-play turning "not now" into a warm, scheduled future touchpoint instead of a dead end.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function toggleAcc(n){
+  var item = document.getElementById('acc-' + n);
+  var isOpen = item.classList.contains('open');
+
+  document.querySelectorAll('.acc-item').forEach(function(el){
+    el.classList.remove('open');
+    el.querySelector('.acc-body').style.maxHeight = null;
+  });
+
+  if (!isOpen){
+    var body = document.getElementById('acc-body-' + n);
+    item.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+
+document.addEventListener('click', function(e){
+  if (!e.target.closest('.acc-item')){
+    document.querySelectorAll('.acc-item').forEach(function(el){
+      el.classList.remove('open');
+      el.querySelector('.acc-body').style.maxHeight = null;
+    });
+  }
+});
+</script>
+</body>
+</html>

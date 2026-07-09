@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Referral Program</title>
+<style>
+  * { box-sizing: border-box; }
+  html { background: transparent; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: transparent;
+    margin: 0;
+    padding: 16px 0;
+    color: #444;
+  }
+  .page {
+    margin: 0;
+    padding: 0 24px;
+  }
+
+  .eyebrow-label {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    color: #59A398;
+    margin-bottom: 8px;
+  }
+  .panel-title {
+    font-weight: 700;
+    font-size: 26px;
+    color: #1B2F5B;
+    margin: 0 0 12px;
+  }
+  .body-text {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    margin: 0 0 22px;
+    text-wrap: balance;
+  }
+
+  .group-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #59A398;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d8dce8;
+  }
+
+  /* Quad grid */
+  .quad-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 26px;
+  }
+  @media (max-width: 640px) {
+    .quad-grid { grid-template-columns: 1fr; }
+  }
+  .quad-card {
+    background: linear-gradient(to bottom, #ffffff 0%, rgba(93,112,174,0.22) 100%);
+    border: 1px solid #A6B3D5;
+    border-radius: 8px;
+    padding: 18px 20px;
+    transition: transform .2s ease-out, background .2s ease-out;
+  }
+  .quad-card:hover {
+    transform: scale(1.03);
+    background: linear-gradient(to bottom, #ffffff 0%, rgba(89,163,152,0.22) 100%);
+  }
+  .quad-card h4 {
+    font-size: 16px;
+    color: #1B2F5B;
+    margin: 0 0 8px;
+    font-weight: 700;
+  }
+  .quad-card p {
+    font-size: 14px;
+    color: #444;
+    margin: 0;
+    line-height: 1.6;
+    text-wrap: balance;
+  }
+
+  /* How to Ask, scroll-through navigator */
+  .q-wrap {
+    border: 1px solid #A6B3D5;
+    border-radius: 8px;
+    padding: 20px 22px;
+    background: #f3f6ff;
+  }
+  .q-progress { display: flex; gap: 6px; margin-bottom: 14px; cursor: pointer; }
+  .q-dot { flex: 1; height: 7px; border-radius: 4px; background: #d8dce8; transition: background .15s; }
+  .q-dot.done { background: #5D70AE; }
+  .q-dot.current { background: #59A398; }
+  .q-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #59A398;
+    margin-bottom: 10px;
+  }
+  .ask-title {
+    font-size: 19px;
+    color: #1B2F5B;
+    font-weight: 700;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  .ask-body {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  .q-nav { display: flex; justify-content: space-between; align-items: center; }
+  .q-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #5D70AE;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 18px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .q-btn:hover { background: #59A398; }
+  .q-btn:disabled { opacity: .35; cursor: default; }
+  .q-btn.ghost { background: none; color: #888; border: 1.5px solid #d8dce8; }
+  .q-btn.ghost:hover { background: #f3f6ff; color: #5D70AE; border-color: #5D70AE; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="eyebrow-label">Timing, Language &amp; Genuine Connection</div>
+  <div class="panel-title">The Referral Program</div>
+  <p class="body-text">Referrals aren't luck. They're the result of timing, genuine connection, and knowing how to ask.</p>
+
+  <div class="quad-grid">
+    <div class="quad-card">
+      <h4>Pick the Right Time</h4>
+      <p>In your QAR meeting, after you've confirmed they're satisfied. During a service call, right after you've solved a problem. During a rate review, when the value is fresh and visible.</p>
+    </div>
+    <div class="quad-card">
+      <h4>Make It Part of the Conversation</h4>
+      <p>"What are your favorite restaurants nearby?" "Who are your trusted vendors?" "Does your spouse or a family member own a business?" Every answer is a potential introduction.</p>
+    </div>
+    <div class="quad-card">
+      <h4>Leverage Your Follow-Up</h4>
+      <p>After the first statement, trust is at its highest. After a dispute is resolved in their favor, emotional goodwill peaks here. After a milestone, first year, record month, new location, celebrate then ask.</p>
+    </div>
+    <div class="quad-card">
+      <h4>Build Genuine Connections</h4>
+      <p>Know their name, busy season, their regulars. Show up without a pitch sometimes. Connect two of your merchants when there's a real fit, you become indispensable to both.</p>
+    </div>
+  </div>
+
+  <p class="group-label">How to Ask</p>
+  <div class="q-wrap">
+    <div class="q-progress" id="ask-progress"></div>
+    <p class="q-label">Step <span id="ask-num">1</span> of <span id="ask-total">4</span></p>
+    <h4 class="ask-title" id="ask-title"></h4>
+    <p class="ask-body" id="ask-body"></p>
+    <div class="q-nav">
+      <button class="q-btn ghost" id="ask-prev" onclick="prevAsk()">&#8592; Back</button>
+      <button class="q-btn" id="ask-next" onclick="nextAsk()">Next &#8594;</button>
+    </div>
+  </div>
+
+</div>
+<script>
+  var askSteps = [
+    { title: "Earn It First", body: "Confirm they're satisfied. Silence after a shrug is your answer, don't push." },
+    { title: "Use Specific Language", body: "\"Who else do you know in [industry] who could benefit from what we've built together?\"" },
+    { title: "Make It Easy to Say Yes", body: "\"I'm not asking for a commitment, just a name. I'll take it from there.\"" },
+    { title: "Follow Up on Every Referral", body: "Whether it converts or not: \"I connected with Maria, thank you.\" Closes the loop." }
+  ];
+  var askIdx = 0;
+
+  function renderAskProgress() {
+    var prog = document.getElementById('ask-progress');
+    var html = "";
+    for (var i = 0; i < askSteps.length; i++) {
+      var cls = i < askIdx ? "done" : (i === askIdx ? "current" : "");
+      html += '<div class="q-dot ' + cls + '" onclick="goToAsk(' + i + ')"></div>';
+    }
+    prog.innerHTML = html;
+  }
+
+  function renderAsk() {
+    document.getElementById('ask-num').textContent = askIdx + 1;
+    document.getElementById('ask-total').textContent = askSteps.length;
+    document.getElementById('ask-title').textContent = askSteps[askIdx].title;
+    document.getElementById('ask-body').textContent = askSteps[askIdx].body;
+    document.getElementById('ask-prev').disabled = askIdx === 0;
+    var nextBtn = document.getElementById('ask-next');
+    nextBtn.innerHTML = askIdx === askSteps.length - 1 ? "Done &#10003;" : "Next &#8594;";
+    renderAskProgress();
+  }
+
+  function nextAsk() { if (askIdx < askSteps.length - 1) { askIdx++; } else { askIdx = 0; } renderAsk(); }
+  function prevAsk() { if (askIdx > 0) { askIdx--; renderAsk(); } }
+  function goToAsk(i) { askIdx = i; renderAsk(); }
+
+  renderAsk();
+</script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>QAR Essentials</title>
+<style>
+  * { box-sizing: border-box; }
+  html { background: transparent; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: transparent;
+    margin: 0;
+    padding: 16px 0;
+    color: #444;
+  }
+  .page {
+    margin: 0;
+    padding: 0 24px;
+  }
+
+  .outer {
+    /* intentionally unstyled: cards sit directly on the page, no enclosing bubble */
+  }
+  .panel {
+    padding: 0;
+  }
+
+  .body-text {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+
+  .essentials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 800px) {
+    .essentials-grid { grid-template-columns: 1fr; }
+  }
+  .ess-card {
+    background: linear-gradient(to bottom, #ffffff 0%, rgba(93,112,174,0.22) 100%);
+    border: 1px solid #A6B3D5;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s ease-out, background .2s ease-out;
+  }
+  .ess-card:hover {
+    transform: scale(1.03);
+    background: linear-gradient(to bottom, #ffffff 0%, rgba(89,163,152,0.22) 100%);
+  }
+  .ess-icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #F3F6FF;
+    border: 1px solid #A6B3D5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .ess-icon-wrap svg {
+    width: 22px;
+    height: 22px;
+  }
+  .ess-card h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    font-weight: 700;
+    color: #59A398;
+    margin: 0 0 8px;
+  }
+  .ess-card .ess-question {
+    font-size: 17px;
+    color: #1B2F5B;
+    font-weight: 700;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  .ess-list {
+    margin: 0 0 14px;
+    padding-left: 18px;
+  }
+  .ess-list li {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.55;
+    margin-bottom: 8px;
+    text-wrap: balance;
+  }
+  .ess-list li:last-child { margin-bottom: 0; }
+  .ess-discuss {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #d8dce8;
+  }
+  .ess-discuss .d-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #59A398;
+    letter-spacing: .04em;
+    margin-bottom: 4px;
+  }
+  .ess-discuss .d-text {
+    font-size: 13px;
+    color: #1B2F5B;
+    font-weight: 600;
+    line-height: 1.4;
+    text-wrap: balance;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="body-text">Propelr's Quality Assurance Review process lets us live up to our promises. This is where we solidify the relationship and, hopefully, keep the merchant in our portfolio forever. It starts at the close and is just as important as discovery and the decision appointment.</p>
+
+  <div class="outer">
+  <div class="panel">
+  <div class="essentials-grid">
+
+    <div class="ess-card">
+      <div class="ess-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#59A398" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="17" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/>
+        </svg>
+      </div>
+      <h4>When</h4>
+      <p class="ess-question">When should I go back?</p>
+      <ul class="ess-list">
+        <li>After completing a full month of processing</li>
+        <li>At least once per year, though every 6 months may be preferable for certain clients</li>
+      </ul>
+      <div class="ess-discuss">
+        <div class="d-label">Discuss</div>
+        <div class="d-text">What should you bring with you to the meeting?</div>
+      </div>
+    </div>
+
+    <div class="ess-card">
+      <div class="ess-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#59A398" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4 8.5 8.5 0 0 1-4-1L3 20l1.1-5.5A8.4 8.4 0 1 1 21 11.5Z"/>
+        </svg>
+      </div>
+      <h4>What</h4>
+      <p class="ess-question">What should this meeting sound like?</p>
+      <ul class="ess-list">
+        <li>Review the original expectations that were set to make sure needs are being met</li>
+        <li>Explore any additional growth or needs of the business, and consider where you may be able to add on products or support</li>
+      </ul>
+      <div class="ess-discuss">
+        <div class="d-label">Discuss</div>
+        <div class="d-text">What additional products should be mentioned?</div>
+      </div>
+    </div>
+
+    <div class="ess-card">
+      <div class="ess-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#59A398" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.8 8.6c0 4.4-8.8 10.4-8.8 10.4S3.2 13 3.2 8.6a4.6 4.6 0 0 1 8.8-1.9 4.6 4.6 0 0 1 8.8 1.9Z"/>
+        </svg>
+      </div>
+      <h4>How</h4>
+      <p class="ess-question">How do I show appreciation for my clients?</p>
+      <ul class="ess-list">
+        <li>Appreciation award deliveries</li>
+        <li>Posting to social media</li>
+        <li>Mentioning your clients at other networking events</li>
+      </ul>
+      <div class="ess-discuss">
+        <div class="d-label">Discuss</div>
+        <div class="d-text">What are some ways you've highlighted clients in the past?</div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

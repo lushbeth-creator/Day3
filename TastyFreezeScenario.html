@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Scenario: The Tasty Freeze on Main Street</title>
+<style>
+  * { box-sizing: border-box; }
+  html { background: transparent; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: transparent;
+    margin: 0;
+    padding: 16px 0;
+    color: #444;
+  }
+  .page {
+    margin: 0;
+    padding: 0 24px;
+  }
+
+  .eyebrow-label {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    color: #59A398;
+    margin-bottom: 8px;
+  }
+  .panel-title {
+    font-weight: 700;
+    font-size: 26px;
+    color: #1B2F5B;
+    margin: 0 0 12px;
+  }
+  .body-text { font-size: 16px; color: #444; line-height: 1.6; margin: 0 0 22px; text-wrap: balance; }
+
+  /* Scenario case file card */
+  .scenario-card {
+    background: linear-gradient(135deg, #f3f6ff 0%, #e8edf8 100%);
+    border: 1px solid #A6B3D5;
+    border-left: 7px solid #5D70AE;
+    border-radius: 8px;
+    padding: 22px 26px;
+    margin-bottom: 22px;
+  }
+  .scenario-card .case-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #59A398;
+    margin-bottom: 12px;
+  }
+  .scenario-row {
+    display: flex;
+    gap: 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .scenario-row > div:last-child { text-wrap: balance; }
+  .scenario-row:last-child { margin-bottom: 0; }
+  .scenario-row .k {
+    font-weight: 700;
+    color: #1B2F5B;
+    min-width: 150px;
+    flex-shrink: 0;
+  }
+
+  /* Discuss: interactive question navigator */
+  .group-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #59A398;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    margin: 0 0 10px;
+  }
+  .q-wrap {
+    border: 1px solid #A6B3D5;
+    border-radius: 8px;
+    padding: 20px 22px;
+    background: #f3f6ff;
+    margin-bottom: 22px;
+  }
+  .q-progress { display: flex; gap: 6px; margin-bottom: 14px; cursor: pointer; }
+  .q-dot { flex: 1; height: 7px; border-radius: 4px; background: #d8dce8; transition: background .15s; }
+  .q-dot.done { background: #5D70AE; }
+  .q-dot.current { background: #59A398; }
+  .q-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #59A398;
+    margin-bottom: 10px;
+  }
+  .q-nav { display: flex; justify-content: space-between; align-items: center; }
+  .q-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #5D70AE;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 18px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .q-btn:hover { background: #59A398; }
+  .q-btn:disabled { opacity: .35; cursor: default; }
+  .q-btn.ghost { background: none; color: #888; border: 1.5px solid #d8dce8; }
+  .q-btn.ghost:hover { background: #f3f6ff; color: #5D70AE; border-color: #5D70AE; }
+
+  /* Role play prompt */
+  .rp-title {
+    font-size: 19px;
+    color: #1B2F5B;
+    font-weight: 700;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  .rp-body {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="eyebrow-label">Engagement &middot; Follow-Up Role Play</div>
+  <div class="panel-title">Scenario: The Tasty Freeze on Main Street</div>
+  <p class="body-text">Read the scenario. Decide your next steps. Be ready to present to the group. 2 minutes or less.</p>
+
+  <div class="scenario-card">
+    <p class="case-label">Case File</p>
+    <div class="scenario-row"><div class="k">Who You Met</div><div>The gatekeeper, working the counter</div></div>
+    <div class="scenario-row"><div class="k">Current Processor</div><div>Heartland, running through a side terminal</div></div>
+    <div class="scenario-row"><div class="k">Pain Point</div><div>Long lines during busy months, and a machine that's been acting up for weeks with no fix from their current processor</div></div>
+    <div class="scenario-row"><div class="k">Decision Maker</div><div>The owner, in Tuesday morning</div></div>
+    <div class="scenario-row"><div class="k">What Happened</div><div>The gatekeeper apologized on your way out for how long it took to process your card</div></div>
+  </div>
+
+  <p class="group-label">Role-Play It</p>
+  <div class="q-wrap">
+    <div class="q-progress" id="rp-progress"></div>
+    <p class="q-label">Step <span id="rp-num">1</span> of <span id="rp-total">2</span></p>
+    <h4 class="rp-title" id="rp-title"></h4>
+    <p class="rp-body" id="rp-body"></p>
+    <div class="q-nav">
+      <button class="q-btn ghost" id="rp-prev" onclick="prevRP()">&#8592; Back</button>
+      <button class="q-btn" id="rp-next" onclick="nextRP()">Next &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  var roleplaySteps = [
+    {
+      title: "Walk In Ready to Book",
+      body: "Your goal walking in: secure a meeting with the owner. When you get there, the gatekeeper tells you the owner isn't available today. Don't leave empty-handed, ask the questions that set up your next move."
+    },
+    {
+      title: "Use What You Learned",
+      body: "Take what you gathered on that visit and use it to actually book the meeting. What do you say now that you didn't know before?"
+    }
+  ];
+  var rpIdx = 0;
+
+  function renderRPProgress() {
+    var prog = document.getElementById('rp-progress');
+    var html = "";
+    for (var i = 0; i < roleplaySteps.length; i++) {
+      var cls = i < rpIdx ? "done" : (i === rpIdx ? "current" : "");
+      html += '<div class="q-dot ' + cls + '" onclick="goToRP(' + i + ')"></div>';
+    }
+    prog.innerHTML = html;
+  }
+
+  function renderRP() {
+    document.getElementById('rp-num').textContent = rpIdx + 1;
+    document.getElementById('rp-total').textContent = roleplaySteps.length;
+    document.getElementById('rp-title').textContent = roleplaySteps[rpIdx].title;
+    document.getElementById('rp-body').textContent = roleplaySteps[rpIdx].body;
+    document.getElementById('rp-prev').disabled = rpIdx === 0;
+    var nextBtn = document.getElementById('rp-next');
+    nextBtn.innerHTML = rpIdx === roleplaySteps.length - 1 ? "Done &#10003;" : "Next &#8594;";
+    renderRPProgress();
+  }
+
+  function nextRP() { if (rpIdx < roleplaySteps.length - 1) { rpIdx++; } else { rpIdx = 0; } renderRP(); }
+  function prevRP() { if (rpIdx > 0) { rpIdx--; renderRP(); } }
+  function goToRP(i) { rpIdx = i; renderRP(); }
+
+  renderRP();
+</script>
+</body>
+</html>

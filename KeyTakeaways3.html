@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Day 3: Today's Flight Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#5D70AE; --green:#59A398; --navy:#1B2F5B; --gray:#444;
+    --border:#d8dce8; --gradbottom:#e8edf8;
+    --iconbg1:#F3F6FF; --iconbg2:#E4E9F7; --iconborder:#A6B3D5;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:0; background:transparent;
+    font-family:'Inter',sans-serif; color:var(--gray);
+  }
+  .wrap{width:100%;}
+
+  .flight-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .flight-card{
+    border:1px solid var(--border); border-radius:8px; overflow:hidden;
+    background:linear-gradient(to bottom, #ffffff 0%, var(--gradbottom) 100%);
+    padding:22px 24px;
+    transition:transform .18s ease;
+  }
+  .flight-card:hover{transform:scale(1.02);}
+
+  .icon-window{
+    width:44px; height:44px; border-radius:8px;
+    background:linear-gradient(to bottom, var(--iconbg1) 0%, var(--iconbg2) 100%);
+    border:1px solid var(--iconborder);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:14px;
+  }
+  .icon-window svg{width:22px; height:22px; stroke:var(--green); fill:none; stroke-width:1.8;}
+
+  .flight-card .eyebrow{
+    color:var(--green); font-size:12px; font-weight:700;
+    letter-spacing:.04em; text-transform:uppercase; margin:0 0 8px;
+  }
+  .flight-card h3{color:var(--navy); font-size:17px; margin:0 0 10px; font-weight:700;}
+  .flight-card p{margin:0; font-size:14px; color:#555; line-height:1.5;}
+
+  .section{margin-bottom:28px;}
+  .section:last-child{margin-bottom:0;}
+  .section > .eyebrow{
+    color:var(--green); font-size:12px; font-weight:700;
+    letter-spacing:.04em; text-transform:uppercase; margin:0 0 10px;
+  }
+
+  .prompt{
+    padding:22px 24px;
+    background:linear-gradient(to bottom, #ffffff 0%, var(--gradbottom) 100%);
+    border:1px solid var(--border); border-radius:8px;
+  }
+  .prompt h3{color:var(--navy); font-size:18px; margin:0 0 12px; font-weight:700;}
+  .prompt ul{margin:0; padding-left:18px;}
+  .prompt li{font-size:15px; color:#555; margin-bottom:8px; line-height:1.5;}
+  .prompt li:last-child{margin-bottom:0;}
+
+  @media (max-width:700px){
+    .flight-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="section">
+    <div class="flight-grid">
+
+      <div class="flight-card">
+        <div class="icon-window">
+          <svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="eyebrow">Decision Appointment</p>
+        <h3>Leading the Decision Appointment</h3>
+        <p>Presenting the recommended solution, addressing concerns and confidently asking for the business.</p>
+      </div>
+
+      <div class="flight-card">
+        <div class="icon-window">
+          <svg viewBox="0 0 24 24"><path d="M12 3v18M17 7.5c0-1.7-2-3-5-3s-5 1.3-5 3 2 3 5 3 5 1.3 5 3-2 3-5 3-5-1.3-5-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="eyebrow">Equipment Financing</p>
+        <h3>Equipment Financing Options</h3>
+        <p>Matching the right financing option to the merchant's needs and explaining next steps.</p>
+      </div>
+
+      <div class="flight-card">
+        <div class="icon-window">
+          <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.5 12l1.8 1.8L15 10.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="eyebrow">Ongoing Support</p>
+        <h3>Merchant Support &amp; QAR</h3>
+        <p>Understanding post-sale support, the Quality Assurance Review process and ongoing expectations.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="eyebrow">Recap</p>
+    <div class="prompt">
+      <h3>Let's Hear It</h3>
+      <ul>
+        <li>What was your biggest takeaway from prospecting and setting the appointment?</li>
+        <li>How did the follow-up and two-stop appointment role plays go, anything that clicked or felt tough?</li>
+        <li>How did you feel about the assigned eLearning, anything that clicked or anything that could use another look?</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

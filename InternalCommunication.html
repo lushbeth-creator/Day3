@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Internal Communication</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#5D70AE; --green:#59A398; --navy:#1B2F5B; --gray:#444;
+    --border:#d8dce8; --gradbottom:#e8edf8;
+    --iconbg1:#F3F6FF; --iconbg2:#E4E9F7; --iconborder:#A6B3D5;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:0; background:transparent;
+    font-family:'Inter',sans-serif; color:var(--gray);
+  }
+  .wrap{width:100%;}
+
+  .intro{
+    font-size:18px; color:var(--gray); line-height:1.6; margin:0 0 22px;
+  }
+
+  .ic-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
+  .ic-card{
+    border:1px solid var(--border); border-radius:8px;
+    background:linear-gradient(to bottom, #ffffff 0%, var(--gradbottom) 100%);
+    padding:24px 24px;
+    display:flex; gap:16px;
+  }
+  .icon-window{
+    width:44px; height:44px; border-radius:8px; flex-shrink:0;
+    background:linear-gradient(to bottom, var(--iconbg1) 0%, var(--iconbg2) 100%);
+    border:1px solid var(--iconborder);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .icon-window svg{width:22px; height:22px; stroke:var(--green); fill:none; stroke-width:1.8;}
+  .ic-text h3{
+    color:var(--navy); font-size:18px; font-weight:700; margin:0 0 8px;
+  }
+  .ic-text p{
+    font-size:14px; color:#555; line-height:1.6; margin:0;
+  }
+
+  @media (max-width:700px){
+    .ic-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:560px){
+    .ic-card{flex-direction:column; padding:22px 20px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="intro">After the "yes," the Senior Payments Advisor submits the application through Stratus. Then, our Underwriting and Boarding and Maintenance Teams work on getting your deal ready for installation.</p>
+
+  <div class="ic-grid">
+    <div class="ic-card">
+      <div class="icon-window">
+        <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.5 12l1.8 1.8L15 10.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="ic-text">
+        <h3>Underwriting</h3>
+        <p>The underwriting department is responsible for assessing the risk of all merchant applications while ensuring our standards for all applications and risks are followed. Our underwriting team utilizes different processes, procedures and standards to determine the risk associated with each account to make sound decisions that have suitable risk outcomes for Propelr.</p>
+      </div>
+    </div>
+    <div class="ic-card">
+      <div class="icon-window">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 2v4M8 2v4M3 10h18" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 15l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="ic-text">
+        <h3>Boarding &amp; Maintenance</h3>
+        <p>Our boarding team is responsible for setting up new merchant accounts on Propelr's supported platforms. Our Boarding Specialists ensure all card types, pricing, and equipment are correctly configured so the merchants can process payments in the most efficient manner.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

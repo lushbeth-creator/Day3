@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propelr: What are SLAs?</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:transparent;font-family:'Inter',sans-serif;color:#1a1a2e;padding:.5rem}
+
+:root{
+  --blue:#5D70AE; --green:#59A398; --navy:#1B2F5B;
+  --border:#d8dce8; --gradbottom:#e8edf8;
+  --iconbg1:#F3F6FF; --iconbg2:#E4E9F7; --iconborder:#A6B3D5;
+}
+
+.flip-card{
+  height:230px;
+  perspective:1200px;
+  cursor:pointer;
+}
+.flip-card:focus{outline:none}
+@keyframes cardPulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.015)}
+}
+.flip-card:hover{animation:cardPulse 1s ease-in-out infinite}
+.flip-card.flipped:hover{animation:none}
+.flip-inner{
+  position:relative;width:100%;height:100%;
+  transition:transform .6s;transform-style:preserve-3d;
+}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+
+.flip-face{
+  position:absolute;inset:0;backface-visibility:hidden;
+  border:1px solid var(--iconborder);border-radius:8px;padding:16px 20px;
+  display:flex;flex-direction:column;
+  background:linear-gradient(to bottom,#ffffff 0%,var(--gradbottom) 100%);
+}
+.flip-front{
+  align-items:center;justify-content:center;gap:10px;text-align:center;
+}
+.flip-back{
+  transform:rotateY(180deg);justify-content:flex-start;overflow-y:auto;
+}
+
+.icon-window{
+  width:44px;height:44px;border-radius:8px;
+  background:linear-gradient(to bottom,var(--iconbg1) 0%,var(--iconbg2) 100%);
+  border:1px solid var(--iconborder);
+  display:flex;align-items:center;justify-content:center;
+}
+.icon-window svg{stroke:var(--green);}
+
+.flip-front h3{font-weight:700;font-size:18px;color:var(--navy)}
+.flip-hint{
+  font-size:12.5px;color:var(--blue);font-weight:600;
+  display:flex;align-items:center;gap:6px;
+}
+.flip-hint svg{width:15px;height:15px}
+
+.eyebrow{text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--green);margin-bottom:6px}
+.back-title{font-weight:700;font-size:16px;color:var(--navy);margin-bottom:8px}
+.flip-back p{font-size:14px;color:#555;line-height:1.5;margin-bottom:8px}
+.flip-back p:last-of-type{margin-bottom:10px}
+
+.portal-link-btn{
+  display:inline-flex;align-items:center;gap:6px;background:var(--blue);color:#fff;
+  text-decoration:none;font-size:11.5px;font-weight:700;padding:9px 13px;border-radius:6px;
+  font-family:'Inter',sans-serif;align-self:flex-start;
+}
+.portal-link-btn:hover{background:var(--green)}
+</style>
+</head>
+<body>
+
+<div class="flip-card" tabindex="0" role="button" aria-label="Flip card, What are SLA's">
+  <div class="flip-inner">
+    <div class="flip-face flip-front">
+      <div class="icon-window">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 4h-2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5"/>
+          <path d="M16 4h2a2 2 0 0 1 2 2v6"/>
+          <rect x="8" y="2.5" width="8" height="3.5" rx="1"/>
+          <path d="M8 11h6M8 14.5h4"/>
+          <circle cx="17.5" cy="17.5" r="4.5"/>
+          <path d="M17.5 15.5v2.2l1.5 1"/>
+        </svg>
+      </div>
+      <h3>What are SLA's?</h3>
+      <div class="flip-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#5D70AE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v6h6"/><path d="M20 20v-6h-6"/><path d="M20 10a8 8 0 0 0-14.9-3.5"/><path d="M4 14a8 8 0 0 0 14.9 3.5"/></svg>
+        Tap to flip
+      </div>
+    </div>
+    <div class="flip-face flip-back">
+      <div class="eyebrow">Set Yourself Up for Success</div>
+      <div class="back-title">What is an SLA?</div>
+      <p>An SLA, or Service Level Agreement, is Propelr's internal commitment for how quickly a specific support ticket gets addressed. Every category, boarding, equipment, underwriting, has its own SLA window.</p>
+      <p>Knowing the SLA lets you set the right expectation with your merchant, instead of guessing at a timeline or promising something faster than what's realistic.</p>
+      <p>If a ticket is approaching or has passed its SLA, that's your cue to follow up, rather than wait indefinitely.</p>
+      <a class="portal-link-btn" href="https://propelrpay1.sharepoint.com/sites/Employee-Portal/SitePages/Tickets-%26-SLAs.aspx#stratus-ticket-categories-slas" target="_blank" rel="noopener" onclick="event.stopPropagation()">View all ticket categories and SLAs <span>&#8594;</span></a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.flip-card').forEach(function(card){
+    function toggle(){ card.classList.toggle('flipped'); }
+    card.addEventListener('click', toggle);
+    card.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        toggle();
+      }
+    });
+  });
+</script>
+</body>
+</html>

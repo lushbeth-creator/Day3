@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lifecycle of the Application</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#5D70AE; --green:#59A398; --navy:#1B2F5B; --gray:#444;
+    --border:#d8dce8; --gradbottom:#e8edf8;
+    --iconbg1:#F3F6FF; --iconbg2:#E4E9F7; --iconborder:#A6B3D5;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:0; background:transparent;
+    font-family:'Inter',sans-serif; color:var(--gray);
+  }
+  .wrap{width:100%;}
+
+  .eyebrow{
+    color:var(--green); font-size:14px; font-weight:700;
+    letter-spacing:.04em; text-transform:uppercase; margin:0 0 10px;
+  }
+  .headline{
+    color:var(--navy); font-size:20px; font-weight:700; margin:0 0 28px;
+  }
+
+  /* Desktop zigzag flow */
+  .flow-desktop{width:100%; margin:0 0 8px;}
+  .flow-desktop svg{width:100%; height:auto; display:block;}
+
+  /* Mobile fallback: simple vertical stepper */
+  .flow-mobile{display:none;}
+  .flow-mobile .flow-step{
+    display:flex; align-items:center; gap:14px; padding:10px 0;
+  }
+  .flow-mobile .flow-step:not(:last-child){
+    border-bottom:1px dashed var(--border);
+  }
+  .flow-mobile .num{
+    width:36px; height:36px; border-radius:10px; flex-shrink:0;
+    background:linear-gradient(to bottom, var(--iconbg1) 0%, var(--iconbg2) 100%);
+    border:1px solid var(--iconborder);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .flow-mobile .num svg{width:18px; height:18px; stroke:var(--green); fill:none; stroke-width:1.8;}
+  .flow-mobile .flow-step p{
+    font-size:14px; font-weight:700; color:var(--navy); margin:0;
+  }
+
+  @media (max-width:760px){
+    .flow-desktop{display:none;}
+    .flow-mobile{display:block;}
+  }
+
+  /* Discussion row */
+  .discuss-wrap{position:relative; margin-top:32px;}
+  .discuss-line{
+    position:absolute; top:24px; left:0; right:0; height:1px; background:var(--border); z-index:0;
+  }
+  .discuss-row{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+    position:relative; z-index:1;
+  }
+  .discuss-item{display:flex; flex-direction:column; align-items:center; text-align:center;}
+  .discuss-icon{
+    width:40px; height:40px; border-radius:8px;
+    background:linear-gradient(to bottom, var(--iconbg1) 0%, var(--iconbg2) 100%);
+    border:1px solid var(--iconborder);
+    display:flex; align-items:center; justify-content:center; margin-bottom:10px;
+    flex-shrink:0;
+  }
+  .discuss-icon svg{width:20px; height:20px; stroke:var(--green); fill:none; stroke-width:1.8;}
+  .discuss-item p{
+    font-size:14px; font-weight:700; color:var(--navy); line-height:1.5; margin:0;
+  }
+
+  @media (max-width:900px){
+    .discuss-row{grid-template-columns:repeat(2,1fr); row-gap:20px;}
+    .discuss-line{display:none;}
+  }
+  @media (max-width:560px){
+    .discuss-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Lifecycle of the Application</p>
+  <h2 class="headline">From Lead to Installation</h2>
+
+  <div class="flow-desktop">
+    <svg viewBox="0 -14 1022 201" width="1022" height="201" xmlns="http://www.w3.org/2000/svg"><defs>
+      <linearGradient id="iconGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#F3F6FF"/>
+        <stop offset="100%" stop-color="#E4E9F7"/>
+      </linearGradient>
+      <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+        <path d="M0,0 L8,4 L0,8 Z" fill="#9aa3b8"/>
+      </marker>
+    </defs><g fill="none" stroke="#c3c9d9" stroke-width="1.6" stroke-dasharray="3,4"><circle cx="94.0" cy="26" r="2.2" fill="#c3c9d9"/><path d="M94.0,26 C 134,-4 186,-4 226.0,62" marker-end="url(#arrow)"/><circle cx="274.0" cy="90" r="2.2" fill="#c3c9d9"/><path d="M274.0,90 C 314,-4 366,-4 406.0,26" marker-end="url(#arrow)"/><circle cx="454.0" cy="26" r="2.2" fill="#c3c9d9"/><path d="M454.0,26 C 494,-4 546,-4 586.0,62" marker-end="url(#arrow)"/><circle cx="634.0" cy="90" r="2.2" fill="#c3c9d9"/><path d="M634.0,90 C 674,-4 726,-4 766.0,26" marker-end="url(#arrow)"/><circle cx="814.0" cy="26" r="2.2" fill="#c3c9d9"/><path d="M814.0,26 C 854,-4 906,-4 946.0,62" marker-end="url(#arrow)"/></g><rect x="38" y="14" width="64" height="64" rx="15" fill="url(#iconGrad)" stroke="#A6B3D5" stroke-width="1.2"/><g transform="translate(55.0,31.0) scale(1.250)" stroke="#59A398" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"/><path d="M9 12h6M9 16h6M9 8h3"/></g><text x="70" y="100" text-anchor="middle" fill="#444444" font-size="12.5" font-family="Inter" font-weight="700">Create the</text><text x="70" y="115" text-anchor="middle" fill="#444444" font-size="12.5" font-family="Inter" font-weight="700">Lead</text><rect x="218" y="78" width="64" height="64" rx="15" fill="url(#iconGrad)" stroke="#A6B3D5" stroke-width="1.2"/><g transform="translate(235.0,95.0) scale(1.250)" fill="#59A398" stroke="none"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4z"/></g><text x="250" y="38" text-anchor="middle" fill="#444444" font-size="12.5" font-family="Inter" font-weight="700">Generate &amp;</text><text x="250" y="54" text-anchor="middle" fill="#444444" font-size="12.5" font-family="Inter" font-weight="700">Send</text><rect x="398" y="14" width="64" height="64" rx="15" fill="url(#iconGrad)" stroke="#A6B3D5" stroke-width="1.2"/><g transform="translate(415.0,31.0) scale(1.250)" stroke="#59A398" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></g><text x="430" y="100" text-anchor="middle" fill="#444444" font-size="12.5" font-family="Inter" font-weight="700">Merchant</text><text x="430" y="115" text-anchor="middle" fill="#444444" font-size="12.5" font-family="Inter" font-weight="700">Signs</text><rect x="578" y="78" width="64" height="64" rx="15" fill="url(#iconGrad)" stroke="#A6B3D5" stroke-width="1.2"/><g transform="translate(595.0,95.0) scale(1.250)" stroke="#59A398" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9.5 12l1.8 1.8L15 10.2"/></g><text x="610" y="38" text-anchor="middle" fill="#444444" font-size="12.5" font-family="Inter" font-weight="700">Underwriting</text><rect x="758" y="14" width="64" height="64" rx="15" fill="url(#iconGrad)" stroke="#A6B3D5" stroke-width="1.2"/><g transform="translate(775.0,31.0) scale(1.250)" stroke="#59A398" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8.5 15l2 2 4-4"/></g><text x="790" y="100" text-anchor="middle" fill="#444444" font-size="12.5" font-family="Inter" font-weight="700">Boarding &amp;</text><text x="790" y="115" text-anchor="middle" fill="#444444" font-size="12.5" font-family="Inter" font-weight="700">Maintenance</text><rect x="938" y="78" width="64" height="64" rx="15" fill="url(#iconGrad)" stroke="#A6B3D5" stroke-width="1.2"/><g transform="translate(955.0,95.0) scale(1.250)" fill="#59A398" stroke="none"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></g><text x="970" y="38" text-anchor="middle" fill="#444444" font-size="12.5" font-family="Inter" font-weight="700">Schedule</text><text x="970" y="54" text-anchor="middle" fill="#444444" font-size="12.5" font-family="Inter" font-weight="700">Install</text></svg>
+  </div>
+
+  <div class="flow-mobile">
+    <div class="flow-step"><div class="num"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12h6M9 16h6M9 8h3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p>Create the Lead</p></div>
+    <div class="flow-step"><div class="num"><svg viewBox="0 0 24 24" style="fill:#59A398;stroke:none;"><path d="M2 21l21-9L2 3v7l13 2-13 2z"/></svg></div><p>Generate &amp; Send</p></div>
+    <div class="flow-step"><div class="num"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p>Merchant Signs</p></div>
+    <div class="flow-step"><div class="num"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.5 12l1.8 1.8L15 10.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p>Underwriting</p></div>
+    <div class="flow-step"><div class="num"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 2v4M8 2v4M3 10h18" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 15l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p>Boarding &amp; Maintenance</p></div>
+    <div class="flow-step"><div class="num"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v10h12V10" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 20v-6h4v6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p>Schedule Install</p></div>
+  </div>
+
+  <div class="discuss-wrap">
+    <div class="discuss-line"></div>
+    <div class="discuss-row">
+
+      <div class="discuss-item">
+        <div class="discuss-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 8l4 4-4 4M7 8l-4 4 4 4M14 4l-4 16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p>What proactive steps can be taken to ensure a smooth hand-off?</p>
+      </div>
+
+      <div class="discuss-item">
+        <div class="discuss-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <p>What can I do to problem solve if something goes wrong?</p>
+      </div>
+
+      <div class="discuss-item">
+        <div class="discuss-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-11.9 7.8L3 21l1.7-6.1A8.5 8.5 0 1 1 21 11.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p>What resources are available to support me?</p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

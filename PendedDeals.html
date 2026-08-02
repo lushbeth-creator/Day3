@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propelr: Common Reasons for Pends</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:transparent;font-family:'Inter',sans-serif;color:#444;padding:.5rem}
+
+:root{
+  --blue:#5D70AE; --green:#59A398; --navy:#1B2F5B;
+  --border:#d8dce8; --gradbottom:#e8edf8;
+}
+
+.eyebrow{text-transform:uppercase;font-size:14px;font-weight:700;letter-spacing:.04em;color:var(--green);margin-bottom:10px}
+.panel-title{font-weight:700;font-size:20px;color:var(--navy);margin-bottom:10px}
+.body-text{font-size:18px;color:#444;line-height:1.6;margin-bottom:22px}
+
+.section-intro{padding:0 2px}
+
+/* Flip card grid */
+.flip-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+@media (max-width:900px){.flip-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.flip-grid{grid-template-columns:1fr}}
+
+.flip-card{
+  height:250px;
+  perspective:1200px;
+  cursor:pointer;
+}
+.flip-card:focus{outline:none}
+.flip-inner{
+  position:relative;width:100%;height:100%;
+  transition:transform .6s;transform-style:preserve-3d;
+}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+
+.flip-face{
+  position:absolute;inset:0;backface-visibility:hidden;
+  border:1px solid var(--border);border-radius:8px;padding:16px 18px;
+  display:flex;flex-direction:column;
+  background:linear-gradient(to bottom,#ffffff 0%,var(--gradbottom) 100%);
+}
+.flip-front{justify-content:space-between;}
+.flip-back{transform:rotateY(180deg);justify-content:flex-start;overflow-y:auto;}
+
+.pend-label{text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--green);margin-bottom:8px}
+.flip-front h3{font-weight:700;font-size:16px;color:var(--navy);line-height:1.35;margin-bottom:8px}
+.flip-front .pend-desc{font-size:14px;color:#555;line-height:1.5}
+.flip-hint{
+  font-size:12px;color:var(--blue);font-weight:600;
+  display:flex;align-items:center;gap:6px;margin-top:10px;
+}
+.flip-hint svg{width:14px;height:14px;flex-shrink:0}
+
+.fix-label{text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--green);margin-bottom:8px}
+.flip-back p{font-size:14px;color:#555;line-height:1.5;margin-bottom:8px}
+.flip-back p:last-child{margin-bottom:0}
+.flip-back p b{color:var(--navy)}
+
+/* Portal link */
+.portal-link-btn{
+  display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:var(--blue);color:#fff;
+  text-decoration:none;font-size:14px;font-weight:600;padding:14px 16px;border-radius:8px;
+  font-family:'Inter',sans-serif;width:100%;justify-content:center;
+}
+.portal-link-btn:hover{background:var(--green)}
+</style>
+</head>
+<body>
+
+<div class="section-intro">
+  <div class="eyebrow">When Underwriting Needs More</div>
+  <div class="panel-title">Common Reasons for Pends</div>
+  <p class="body-text">A pend isn't a no, it's a request for more information. Most pends trace back to a handful of avoidable causes. Tap each card to see the fix, and remember: everything goes on the ticket, never the lead.</p>
+</div>
+
+<div class="flip-grid">
+
+  <div class="flip-card" tabindex="0" role="button" aria-label="Flip card, documents uploaded to the lead">
+    <div class="flip-inner">
+      <div class="flip-face flip-front">
+        <div>
+          <div class="pend-label">Common Pend</div>
+          <h3>Documents Uploaded to the Lead</h3>
+          <div class="pend-desc">Supporting docs or underwriting comments were added to the lead, and the support team never got notified.</div>
+        </div>
+        <div class="flip-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5D70AE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v6h6"/><path d="M20 20v-6h-6"/><path d="M20 10a8 8 0 0 0-14.9-3.5"/><path d="M4 14a8 8 0 0 0 14.9 3.5"/></svg>
+          Tap for the fix
+        </div>
+      </div>
+      <div class="flip-face flip-back">
+        <div class="fix-label">What to Do</div>
+        <p><b>Attach everything to the ticket</b> that notified you of the pend, documents and notes both.</p>
+        <p>The support team does not receive notifications when attachments or comments are added to the lead, so anything uploaded there sits unseen.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card" tabindex="0" role="button" aria-label="Flip card, missing equipment or processing network">
+    <div class="flip-inner">
+      <div class="flip-face flip-front">
+        <div>
+          <div class="pend-label">Common Pend</div>
+          <h3>Missing Equipment or Processing Network</h3>
+          <div class="pend-desc">One or both fields were left blank on the deal, often on VAR-only requests.</div>
+        </div>
+        <div class="flip-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5D70AE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v6h6"/><path d="M20 20v-6h-6"/><path d="M20 10a8 8 0 0 0-14.9-3.5"/><path d="M4 14a8 8 0 0 0 14.9 3.5"/></svg>
+          Tap for the fix
+        </div>
+      </div>
+      <div class="flip-face flip-back">
+        <div class="fix-label">What to Do</div>
+        <p><b>Include both, always.</b> Equipment and processing network must be on every deal, even if you are only requesting a VAR.</p>
+        <p>Never leave either field blank. Double-check the processing network any time a platform change is involved.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card" tabindex="0" role="button" aria-label="Flip card, platform change after the MPA">
+    <div class="flip-inner">
+      <div class="flip-face flip-front">
+        <div>
+          <div class="pend-label">Common Pend</div>
+          <h3>Platform Change After the MPA</h3>
+          <div class="pend-desc">The platform or retail-to-wholesale flip happened after the MPA went out for signature.</div>
+        </div>
+        <div class="flip-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5D70AE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v6h6"/><path d="M20 20v-6h-6"/><path d="M20 10a8 8 0 0 0-14.9-3.5"/><path d="M4 14a8 8 0 0 0 14.9 3.5"/></svg>
+          Tap for the fix
+        </div>
+      </div>
+      <div class="flip-face flip-back">
+        <div class="fix-label">What to Do</div>
+        <p><b>Make changes before the MPA</b> is sent or signed. Changes after the fact alter the required fields and can change the deal entirely.</p>
+        <p>Same rule for retail-to-wholesale flips: complete the flip first, then send the MPA.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card" tabindex="0" role="button" aria-label="Flip card, incomplete owner details or control prong">
+    <div class="flip-inner">
+      <div class="flip-face flip-front">
+        <div>
+          <div class="pend-label">Common Pend</div>
+          <h3>Incomplete Owner Details or Control Prong</h3>
+          <div class="pend-desc">Owner information is missing, or the owner details and Control Prong don't match each other.</div>
+        </div>
+        <div class="flip-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5D70AE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v6h6"/><path d="M20 20v-6h-6"/><path d="M20 10a8 8 0 0 0-14.9-3.5"/><path d="M4 14a8 8 0 0 0 14.9 3.5"/></svg>
+          Tap for the fix
+        </div>
+      </div>
+      <div class="flip-face flip-back">
+        <div class="fix-label">What to Do</div>
+        <p><b>Complete both fully and consistently.</b> The owner's details and Control Prong must match one another.</p>
+        <p>Double-check both before submission, a mismatch is one of the fastest ways to earn a pend.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<a class="portal-link-btn" href="https://propelrpay1.sharepoint.com/sites/Employee-Portal/SitePages/Underwriting---Risk.aspx#resources" target="_blank" rel="noopener">View all best practices and underwriting resources on the Employee Portal <span>&#8594;</span></a>
+
+<script>
+  document.querySelectorAll('.flip-card').forEach(function(card){
+    function toggle(){ card.classList.toggle('flipped'); }
+    card.addEventListener('click', toggle);
+    card.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        toggle();
+      }
+    });
+  });
+</script>
+</body>
+</html>

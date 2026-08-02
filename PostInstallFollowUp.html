@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propelr: After the Install</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:transparent;font-family:'Inter',sans-serif;color:#444;padding:.5rem}
+
+:root{
+  --blue:#5D70AE; --green:#59A398; --navy:#1B2F5B;
+  --border:#A6B3D5; --gradbottom:#e8edf8;
+  --iconboxtop:#F3F6FF; --iconboxbottom:#E4E9F7;
+}
+
+.followup-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch;
+}
+@media (max-width:560px){.followup-grid{grid-template-columns:1fr}}
+
+.followup-card{
+  background:linear-gradient(to bottom,#ffffff 0%,var(--gradbottom) 100%);
+  border:1px solid var(--border);border-radius:8px;
+  padding:24px 22px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;
+}
+.followup-icon{
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(to bottom,var(--iconboxtop) 0%,var(--iconboxbottom) 100%);
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.followup-icon svg{width:26px;height:26px;stroke:var(--green);stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.followup-text{font-size:14px;font-weight:700;color:var(--navy);line-height:1.5;max-width:340px}
+.followup-text b{color:var(--green)}
+</style>
+</head>
+<body>
+
+<div class="followup-grid">
+  <div class="followup-card">
+    <div class="followup-icon">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M9 15l2 2 4-4"/></svg>
+    </div>
+    <div class="followup-text">Check back in on the <b>DAY</b> after install and a <b>WEEK</b> after install to make sure all is well!</div>
+  </div>
+  <div class="followup-card">
+    <div class="followup-icon">
+      <svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M4 12v3a2 2 0 0 0 2 2h1v-5H4z"/><path d="M20 12v3a2 2 0 0 1-2 2h-1v-5h3z"/><path d="M18 17v1a3 3 0 0 1-3 3h-2"/></svg>
+    </div>
+    <div class="followup-text">Set an appointment to come back for a <b>QAR</b> (Quality Assurance Review) <b>4-6 weeks</b> after install</div>
+  </div>
+</div>
+
+</body>
+</html>

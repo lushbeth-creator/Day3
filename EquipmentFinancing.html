@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propelr: Equipment Financing</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:transparent;font-family:'Inter',sans-serif;color:#444;padding:.5rem}
+
+:root{
+  --blue:#5D70AE; --green:#59A398; --navy:#1B2F5B;
+  --border:#d8dce8; --gradbottom:#e8edf8;
+  --gold-bg:#fff8e6; --gold-border:#B8860B; --gold-text:#9C6B00;
+}
+
+.eyebrow{text-transform:uppercase;font-size:14px;font-weight:700;letter-spacing:.04em;color:var(--green);margin-bottom:10px}
+.panel-title{font-weight:700;font-size:20px;color:var(--navy);margin-bottom:10px}
+.body-text{font-size:18px;color:#444;line-height:1.6;margin-bottom:18px}
+
+/* Caution block */
+.caution-block{background:var(--gold-bg);border:1px solid var(--gold-border);border-radius:6px;padding:14px 16px;margin-bottom:20px}
+.caution-head{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--gold-text);margin-bottom:8px}
+.caution-block ul{margin:0;padding-left:16px}
+.caution-block li{font-size:13.5px;color:var(--gold-text);line-height:1.65}
+
+/* Steps */
+.step-row{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.step-row:last-child{border-bottom:none}
+.step-num{
+  width:24px;height:24px;border-radius:50%;background:var(--green);color:#fff;
+  font-size:11.5px;font-weight:700;flex-shrink:0;margin-top:1px;
+  display:flex;align-items:center;justify-content:center;
+}
+.step-text{font-size:14px;color:#444;line-height:1.55}
+.step-text b{color:var(--navy)}
+
+/* Portal link */
+.portal-link-btn{
+  display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:var(--blue);color:#fff;
+  text-decoration:none;font-size:14px;font-weight:600;padding:12px 16px;border-radius:6px;
+  font-family:'Inter',sans-serif;width:100%;justify-content:center;
+}
+.portal-link-btn:hover{background:var(--green)}
+</style>
+</head>
+<body>
+
+<div class="eyebrow">Funding the Deployment</div>
+<div class="panel-title">Equipment Financing</div>
+<p class="body-text">Propelr offers seven ways to fund equipment. The preferred path is the Merchant Upfront Purchase, simplest and fastest to close. The other six exist to overcome budget objections, at a cost, and Pilot-facing options need finance approval.</p>
+
+<div class="caution-block">
+  <div class="caution-head">
+    <svg width="15" height="15" viewBox="0 0 24 24"><path d="M12 2.5L1.5 21h21L12 2.5z" fill="#B8860B"/><rect x="11.1" y="9" width="1.8" height="6" rx="0.9" fill="#ffffff"/><circle cx="12" cy="17.2" r="1.1" fill="#ffffff"/></svg>
+    Sales Note
+  </div>
+  <ul>
+    <li>Alternatives to the upfront purchase may carry higher long-term costs or increased liability exposure</li>
+    <li>Any exception to financing policy requires written approval from our COO, Mike Morsell</li>
+    <li>Operations will not order equipment until all required documentation is received</li>
+  </ul>
+</div>
+
+<div>
+  <div class="step-row"><div class="step-num">1</div><div class="step-text"><b>Merchant Upfront Purchase.</b> Preferred. Merchant pays sale price upfront.</div></div>
+  <div class="step-row"><div class="step-num">2</div><div class="step-text"><b>Merchant Installment (3 or 6 mo).</b> Merchant pays monthly, titles at payoff.</div></div>
+  <div class="step-row"><div class="step-num">3</div><div class="step-text"><b>Merchant Lease.</b> Third-party lessor (TCG), profit split with Pilot.</div></div>
+  <div class="step-row"><div class="step-num">4</div><div class="step-text"><b>Merchant Rental.</b> Propelr owns equipment, Pilot Surety required.</div></div>
+  <div class="step-row"><div class="step-num">5</div><div class="step-text"><b>Pilot Residual Offset.</b> Pilot recovers cost from their own residuals.</div></div>
+  <div class="step-row"><div class="step-num">6</div><div class="step-text"><b>Margin Offset Sharing.</b> Cost split and recovered from MID margin.</div></div>
+  <div class="step-row"><div class="step-num">7</div><div class="step-text"><b>100% Propelr-Funded.</b> Propelr pays, Pilot split permanently reduced 25%.</div></div>
+</div>
+
+<a class="portal-link-btn" href="https://propelrpay1.sharepoint.com/sites/Employee-Portal/SitePages/Equipment%20Financing.aspx" target="_blank" rel="noopener">View full financing terms, credit limit policy, and device pricing on the Employee Portal <span>&#8594;</span></a>
+
+</body>
+</html>

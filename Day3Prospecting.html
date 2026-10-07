@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day 3 | Prospecting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--blue:#5D70AE;--green:#59A398;--navy:#1B2F5B;--purple:#A6B3D5}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:transparent;width:100%;overflow-x:hidden}
+  body{padding:4px 6px 6px;font-family:Inter,"Segoe UI",Arial,sans-serif;color:#000;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h2{margin:0 0 14px;color:var(--navy);font-size:20px;font-weight:700;line-height:1.3}
+
+  .layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:16px;align-items:stretch}
+
+  /* Navy accent panel */
+  .why{min-width:0;display:flex;flex-direction:column;padding:26px;border-radius:16px;background:linear-gradient(135deg,#1B2F5B 0%,#2e4a85 100%);color:#fff}
+  .why h3{margin:0 0 10px;color:#fff;font-size:20px;font-weight:700;line-height:1.3}
+  .why p{margin:0;font-size:18px;color:#e9edf8}
+  .why p+p{margin-top:14px}
+  .why strong{color:#fff}
+  .why .label{margin:18px 0 8px;color:#B0D5D4;font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+  .why ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+  .why li{font-size:18px;line-height:1.45;color:#e9edf8;padding-left:14px;border-left:3px solid #59A398}
+  .why .pitfall{margin-top:auto;padding-top:18px}
+
+  /* Step viewer */
+  .standards{min-width:0;display:flex;flex-direction:column;padding:18px;border:1px solid var(--purple);border-radius:16px;background:linear-gradient(135deg,#ffffff 0%,#E4E9F7 100%)}
+  .eyebrow{margin:0 0 8px;color:var(--green);font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+  .std-list{display:flex;flex-direction:column;gap:4px}
+  .std-btn{display:flex;align-items:center;gap:12px;width:100%;padding:8px 12px;border:1px solid transparent;border-radius:10px;background:none;font:inherit;text-align:left;cursor:pointer;transition:background .15s ease,border-color .15s ease}
+  .std-btn:hover{background:#F3F6FF}
+  .std-btn[aria-selected="true"]{background:#DAF3EF;border-color:var(--blue)}
+  .std-btn:focus-visible{outline:3px solid var(--purple);outline-offset:2px}
+  .std-num{flex-shrink:0;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:12px;font-weight:700;color:var(--blue);background:linear-gradient(to bottom,#F3F6FF 0%,#E4E9F7 100%);border:1px solid var(--purple);transition:background .15s ease,color .15s ease}
+  .std-btn[aria-selected="true"] .std-num{background:var(--blue);border-color:var(--blue);color:#fff}
+  .std-label{flex:1;font-size:18px;font-weight:700;color:var(--navy);line-height:1.3}
+  .std-chev{flex-shrink:0;width:16px;height:16px;stroke:var(--purple);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .std-btn[aria-selected="true"] .std-chev{stroke:var(--blue)}
+
+  .std-detail{margin-top:14px;padding-top:14px;border-top:1px solid var(--purple)}
+  .std-detail p{margin:0;font-size:18px;color:#000}
+  .std-detail ul{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+  .std-detail li{font-size:18px;line-height:1.45}
+  .std-detail li strong{color:var(--navy)}
+  .std-detail .mini{margin:12px 0 2px;color:var(--green);font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+  .std-detail p.quiet{font-style:italic;color:#5b6472}
+
+  /* Try it Out banner */
+  .try{margin-top:16px;padding:18px 20px;border-left:5px solid var(--green);border-radius:0 12px 12px 0;background:linear-gradient(135deg,#ffffff 0%,#DAF3EF 100%);font-size:18px;line-height:1.6}
+  .try strong{color:var(--navy)}
+
+  @media (max-width:900px){.layout{grid-template-columns:1fr}}
+  @media (max-width:600px){.why{padding:22px}.standards{padding:14px}}
+</style>
+</head>
+<body>
+<section aria-label="Prospecting">
+  <div class="layout">
+    <div class="why">
+      <h3>You do not need to reinvent yourself.</h3>
+      <p>Prospecting is not just finding strangers. Start by mapping the people, businesses and relationships already around you, then expand with intention.</p>
+      <p class="label">Your Three Spheres</p>
+      <ul>
+        <li><strong>Friends &amp; Family:</strong> highest trust, easiest conversations. Tell them what you're doing and ask who they know.</li>
+        <li><strong>Businesses You Frequent:</strong> you're already their customer. Lead with the relationship and be curious first.</li>
+        <li><strong>Previous Clients:</strong> trust is already built. A client who wasn't ready before may be now.</li>
+      </ul>
+      <p class="pitfall">One pitfall to watch: <strong>your sphere gets you started; it doesn't build a career.</strong> Keep fueling your pipeline alongside it.</p>
+    </div>
+
+    <div class="standards">
+      <p class="eyebrow">Your Prospecting Path</p>
+      <div class="std-list" role="tablist" aria-orientation="vertical" aria-label="Your Prospecting Path" id="stdList"></div>
+      <div class="std-detail" role="tabpanel" id="stdPanel" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="try"><strong>Try it Out! (4 minutes)</strong> Write down 5 real businesses or introductions available through your existing sphere. Circle the 2 you can act on first and identify the next action for each.</div>
+</section>
+
+<script>
+(function(){
+  var steps=[
+    {title:"Your sphere of influence",
+     html:'<p>Begin with people and businesses already connected to you. Warm access can shorten the distance to a real conversation. Work all 3 spheres before you look further out.</p>',
+     think:"Who already knows, trusts or can introduce you?"},
+    {title:"Look for merchant conversations",
+     html:'<p>Notice businesses you already interact with, local relationships, referrals and introductions. Prospecting becomes easier when it is part of how you move through your territory.</p>',
+     think:"What businesses do you naturally encounter every week?"},
+    {title:"Build referral partners",
+     html:'<p>Accountants, bookkeepers, bankers and insurance agents each work with dozens of business owners. One trusted introduction can open more doors than a day of cold walk-ins.</p>',
+     think:"Who already serves the merchants you want to meet?"},
+    {title:"Protect your time",
+     html:'<p>Use what you learned on Day 2. A lead is not automatically a priority. Consider fit, complexity, likely sales cycle and who should be involved.</p>',
+     think:"Which opportunities deserve your time first?"},
+    {title:"Create the next action",
+     html:'<p>The goal of prospecting is not activity for activity\'s sake. Create a conversation, appointment or clear next step and document it in Stratus.</p>',
+     think:"What is the next observable action?"}
+  ];
+  var list=document.getElementById('stdList');
+  var panel=document.getElementById('stdPanel');
+  var btns=[];
+  steps.forEach(function(s,i){
+    var b=document.createElement('button');
+    b.type='button';b.className='std-btn';b.setAttribute('role','tab');b.id='std-'+i;
+    b.setAttribute('aria-controls','stdPanel');
+    b.innerHTML='<span class="std-num">'+String(i+1).padStart(2,'0')+'</span><span class="std-label">'+s.title+'</span><svg class="std-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
+    b.addEventListener('click',function(){select(i);});
+    b.addEventListener('keydown',function(e){
+      if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();select((i+1)%btns.length,true);}
+      if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();select((i-1+btns.length)%btns.length,true);}
+    });
+    list.appendChild(b);btns.push(b);
+  });
+  function select(i,focus){
+    btns.forEach(function(b,k){
+      var on=k===i;
+      b.setAttribute('aria-selected',on?'true':'false');
+      b.tabIndex=on?0:-1;
+    });
+    panel.innerHTML=steps[i].html+'<p class="mini">Think about it</p><p class="quiet">'+steps[i].think+'</p>';
+    panel.setAttribute('aria-labelledby','std-'+i);
+    if(focus)btns[i].focus();
+  }
+  select(0);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day 3 | Earn the Appointment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--blue:#5D70AE;--green:#59A398;--navy:#1B2F5B;--purple:#A6B3D5;--mint:#DAF3EF;--lp:#F3F6FF;--lb:#E4E9F7}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:transparent;width:100%;overflow-x:hidden}
+  body{padding:4px 6px 8px;font-family:Inter,"Segoe UI",Arial,sans-serif;color:#000;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h2,h3{margin:0;color:var(--navy);font-size:20px;font-weight:700;line-height:1.3}
+  p{margin:0;font-size:18px}
+  .intro{margin:8px 0 18px;line-height:1.6}
+  .eyebrow{margin:0 0 6px;color:var(--green);font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+
+  /* Step cards: Solutions device-card treatment */
+  .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:stretch}
+  .card{display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--purple);border-radius:14px;background:linear-gradient(to bottom,#ffffff 0%,rgba(93,112,174,.18) 100%)}
+  .band{position:relative;display:flex;align-items:center;gap:12px;padding:18px 18px;overflow:hidden;background:#E8EDF8;border-bottom:1px solid var(--purple)}
+  .band svg.blob{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+  .band > *:not(.blob){position:relative;z-index:1}
+  .icon-box{flex-shrink:0;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(to bottom,var(--lp) 0%,var(--lb) 100%);border:1px solid var(--purple)}
+  .icon-box svg{width:22px;height:22px;stroke:var(--green);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .body{display:flex;flex-direction:column;flex:1;padding:16px 18px 18px}
+  .body p{font-size:16px;line-height:1.5}
+  .say{margin-top:auto;padding-top:14px}
+  .say .lbl{margin:0 0 4px;color:var(--green);font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+  .say .q{padding-left:12px;border-left:3px solid var(--green);font-style:italic;color:#4f5866}
+
+  /* Door vs Discovery */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+  .cmp{padding:20px 22px;border:1px solid var(--purple);border-radius:14px;background:linear-gradient(135deg,#ffffff 0%,var(--lb) 100%)}
+  .cmp.mint{border-color:var(--green);background:linear-gradient(135deg,#ffffff 0%,var(--mint) 100%)}
+  .cmp h3{margin-bottom:6px}
+
+  .try{margin-top:16px;padding:18px 20px;border-left:5px solid var(--green);border-radius:0 12px 12px 0;background:linear-gradient(135deg,#ffffff 0%,var(--mint) 100%);font-size:18px;line-height:1.6}
+  .try strong,.try .resp{color:var(--navy);font-weight:700}
+
+  @media (max-width:1000px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:620px){.cards,.compare{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<section aria-labelledby="t">
+  <h2 id="t">You are not there to sell everything. You are there to earn the next conversation.</h2>
+  <p class="intro">The first conversation is not the Discovery Appointment and it is not the Decision Appointment. Build rapport, learn a little, give the merchant a reason to care and ask for time to learn more. Keep it short and sweet; respecting their time is part of the impression you make.</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="band">
+        <svg class="blob" viewBox="0 0 200 80" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="160" cy="6" r="60" fill="#DAF3EF" opacity=".6"/><circle cx="16" cy="70" r="48" fill="#A6B3D5" opacity=".24"/></svg>
+        <div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></div>
+        <h3>Build rapport</h3>
+      </div>
+      <div class="body">
+        <p>Take a genuine interest in the business and the person in front of you. Notice what is around you, like a signed jersey on the wall. People open up to people who are curious about them.</p>
+        <div class="say"><p class="lbl">Say it</p><p class="q">&ldquo;Is that a signed jersey? There has to be a story behind that one.&rdquo;</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="band">
+        <svg class="blob" viewBox="0 0 200 80" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="160" cy="6" r="60" fill="#DAF3EF" opacity=".6"/><circle cx="16" cy="70" r="48" fill="#A6B3D5" opacity=".24"/></svg>
+        <div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M9.5 9a2.5 2.5 0 1 1 3.4 2.3c-.6.3-.9.7-.9 1.3"/><path d="M12 14.6h.01"/></svg></div>
+        <h3>Ask a few questions</h3>
+      </div>
+      <div class="body">
+        <p>Get them talking about how they run things before you talk about Propelr. A few easy questions are enough; save the deep dive for the Discovery Appointment.</p>
+        <div class="say"><p class="lbl">Say it</p><p class="q">&ldquo;Who handles your payments today? What do you like about them?&rdquo;</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="band">
+        <svg class="blob" viewBox="0 0 200 80" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="160" cy="6" r="60" fill="#DAF3EF" opacity=".6"/><circle cx="16" cy="70" r="48" fill="#A6B3D5" opacity=".24"/></svg>
+        <div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.4-6-11a6 6 0 0 1 12 0c0 5.6-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg></div>
+        <h3>Tell them why you're there</h3>
+      </div>
+      <div class="body">
+        <p>Give the merchant a reason to care. Local presence matters: if you just helped a business around the corner, say so. Keep the focus on them, not everything Propelr offers.</p>
+        <div class="say"><p class="lbl">Say it</p><p class="q">&ldquo;I was just around the corner at [nearby business] and wanted to introduce myself.&rdquo;</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="band">
+        <svg class="blob" viewBox="0 0 200 80" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="160" cy="6" r="60" fill="#DAF3EF" opacity=".6"/><circle cx="16" cy="70" r="48" fill="#A6B3D5" opacity=".24"/></svg>
+        <div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/><path d="M9.5 15l1.8 1.8 3.4-3.6"/></svg></div>
+        <h3>Ask for the appointment</h3>
+      </div>
+      <div class="body">
+        <p>Tell them why you want to come back, then offer 2 days at 2 different times. Never hand over an open calendar; people want to work with people who are busy and successful.</p>
+        <div class="say"><p class="lbl">Say it</p><p class="q">&ldquo;I'd love to come back and see if there's a fit. Tuesday at 9am or Thursday at 2pm?&rdquo;</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="compare">
+    <div class="cmp">
+      <p class="eyebrow">At the Door</p>
+      <h3>Learn enough to create relevance.</h3>
+      <p>A few minutes, a few questions and one clear ask: the appointment.</p>
+    </div>
+    <div class="cmp mint">
+      <p class="eyebrow">At Discovery</p>
+      <h3>Learn enough to recommend.</h3>
+      <p>Understand the business, find the friction and earn the right to recommend.</p>
+    </div>
+  </div>
+
+  <div class="try"><strong>Try it Out! (2 minutes or less)</strong> Volunteers, walk into a business and earn the appointment: build rapport, ask a few questions, tell them why you're there and ask for the meeting. Your merchant may respond with <span class="resp">&ldquo;I already have someone,&rdquo;</span> <span class="resp">&ldquo;I'm busy,&rdquo;</span> <span class="resp">&ldquo;Just send me something&rdquo;</span> or <span class="resp">&ldquo;We're happy with what we have.&rdquo;</span></div>
+</section>
+</body>
+</html>
